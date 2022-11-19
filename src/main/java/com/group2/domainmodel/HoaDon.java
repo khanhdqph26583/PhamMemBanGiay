@@ -55,7 +55,7 @@ public class HoaDon {
     @JoinColumn(name = "MaNV", referencedColumnName = "MaNV")
     private NhanVien nhanVien;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MaKM", referencedColumnName = "MaKM")
     private KhuyenMai khuyenMai;
 }

@@ -7,6 +7,7 @@ package com.group2.domainmodel;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -37,11 +38,12 @@ public class HoaDonChiTiet {
     @Column(name = "Gia")
     private BigDecimal gia;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdChiTietSP", referencedColumnName = "Id")
     private ChiTietSanPham chiTietSanPham;
 
-    @OneToOne
+    @Id
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MaHD", referencedColumnName = "MaHD")
     private HoaDon hoaDon;
 }
