@@ -7,11 +7,12 @@ package com.group2.domainmodel;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,7 +36,7 @@ public class ChiTietSanPham {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @Column(name = "ThoiGianBH")
     private Integer thoiGianBH;
@@ -46,27 +47,27 @@ public class ChiTietSanPham {
     @Column(name = "TrangThai")
     private Integer trangThai;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdSP", referencedColumnName = "Id")
     private SanPham sanPham;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdSize", referencedColumnName = "Id")
     private Size size;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdMauSac", referencedColumnName = "Id")
     private MauSac mauSac;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdDongSP", referencedColumnName = "Id")
     private DongSP dongSP;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdAnh", referencedColumnName = "Id")
     private Anh anh;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MaDanhMuc", referencedColumnName = "MaDanhMuc")
     private DanhMuc danhMuc;
 }

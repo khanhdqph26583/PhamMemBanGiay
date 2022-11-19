@@ -32,7 +32,7 @@ public class ChucVu {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @Column(name = "Ma")
     private String ma;
